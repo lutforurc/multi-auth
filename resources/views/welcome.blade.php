@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<a href="">Staff Login</a>
+<a href="{{ route('staff.login') }}">Staff Login</a>
 <a href="{{ route('login') }}">User Login</a>
 </body>
 

@@ -60,4 +60,12 @@ Route::middleware('auth')->group(function () {
 # Staff panel routes
 Route::prefix('/staff')->name('staff.')->group(function(){
     Route::get('/login', [StaffAuth::class, 'create' ] )->name('login');
+    Route::post('/login', [StaffAuth::class, 'store' ] );
+
+    Route::get('/logout', [StaffAuth::class, 'destroy'])->name('logout');
+
+    Route::get('/dashboard', function(){
+        return 'Staff';
+    })->name('dashboard');
+    
 });

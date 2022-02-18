@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Staff\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\StaffLoginRequest;
 use App\Providers\RouteServiceProvider; 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth; 
 use Inertia\Inertia;
 
 
@@ -32,11 +32,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        
         $request->authenticate();
-
+        
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        
+        // return route('staff.dashboard');
+        return redirect()->intended(RouteServiceProvider::STAFF_HOME);
     }
 
     /**
